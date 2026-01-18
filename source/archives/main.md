@@ -1,5 +1,5 @@
 # Popular
 
-### [Gene](https://melbawebsite.netlify.app/archives/John)
+### [Gene](https://melbawebsite.netlify.app/archives/Gene)
 
-### [Kalvin](https://melbawebsite.netlify.app/archives/Kimi)
+### [Kalvin](https://melbawebsite.netlify.app/archives/Kalvin)
