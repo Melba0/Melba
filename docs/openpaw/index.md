@@ -66,7 +66,7 @@ LLM ──► src = $ : (any(class == "person"))
 
 ## 界面
 
-![OpenPaw 三栏布局：左侧蒙版与分割模型，中间对比画布，右侧调整与 DSL 编辑器，底部胶片条](/openpaw-screenshot.svg)
+![OpenPaw 三栏布局：左侧蒙版与分割模型，中间对比画布，右侧调整与 DSL 编辑器，底部胶片条](/screenshots/openpaw/overview.png)
 
 界面为专业的三栏 + 底部布局，面板可停靠（Photoshop 风格）+ 大画布（剪映风格）：
 
@@ -75,6 +75,48 @@ LLM ──► src = $ : (any(class == "person"))
 - **右栏**：调整、历史记录，以及「DSL 编辑器 / 思考过程」标签页。
 - **底部**：输入 / 输出胶片条（大缩略图，带 ✅/⏳/❌/⚪ 状态角标与全选 / 反选 / 删除 / 导出 / 对比）。
 - 面板可**拖动、浮动、折叠**，布局自动保存到 `config/layout.ini`。
+
+## 界面细节
+
+### 处理前后对比
+
+支持滑动 / 并排 / 切换 / 仅结果四种对比模式：
+
+![处理前后对比](/screenshots/openpaw/compare.png)
+
+### 工具面板
+
+按类别浏览 35+ 处理工具，一键插入 DSL：
+
+![工具面板](/screenshots/openpaw/tools-panel.png)
+
+### 属性面板
+
+实时预览调整参数，点击 Apply 才写入：
+
+![属性面板](/screenshots/openpaw/properties-panel.png)
+
+### 底部胶片条
+
+输入 / 输出大缩略图，带 ✅/⏳/❌/⚪ 状态角标：
+
+![底部胶片条](/screenshots/openpaw/filmstrip.png)
+
+### 分割包管理
+
+启用 / 禁用 / 添加 / 删除分割模型包：
+
+![分割包管理器](/screenshots/openpaw/pack-manager.png)
+
+### 首选项
+
+配置 LLM、处理参数、界面与工作区：
+
+![首选项](/screenshots/openpaw/preferences.png)
+
+### 输入面板
+
+![输入面板](/screenshots/openpaw/input-panel.png)
 
 ## 与 Tio 的关系
 

@@ -44,9 +44,47 @@ Tio 是一款**语义图片检索工具**。你不需要输入关键词，而是
 | Cache | `dsl/src/cache/` | 增量缓存索引 + YOLO 推理 |
 | Engine | `dsl/src/engine/` | ONNX Runtime 后端 |
 
-## 截图
+## 界面截图
 
-![Tio 主界面：左侧检索面板，右侧结果缩略图网格](/tio-screenshot.svg)
+### 主界面
+
+![Tio 主界面：左侧检索面板，右侧结果缩略图网格](/screenshots/tio/main-window.png)
+
+### 自然语言搜索
+
+用一句话描述画面，LLM 翻译为 DSL 并执行：
+
+![自然语言搜索：输入一句话翻译为 DSL](/screenshots/tio/nl-search.png)
+
+### 结果网格
+
+按模糊匹配分数降序排列，支持多选、删除与标签筛选：
+
+![结果缩略图网格](/screenshots/tio/results-grid.png)
+
+### 图片详情
+
+查看检测对象、曝光 / 清晰度 / EXIF 元数据，编辑用户标记：
+
+![图片详情对话框](/screenshots/tio/detail-dialog.png)
+
+### 标签筛选
+
+用 key→value 条件在查询前预筛选图库：
+
+![标签筛选对话框](/screenshots/tio/tag-filter.png)
+
+### 设置
+
+模型、扩展包、图库、API 与日志等设置：
+
+![设置页面](/screenshots/tio/settings.png)
+
+### 命令行 REPL
+
+无 GUI 的交互式引擎，支持脚本与 JSON 模式：
+
+![命令行 REPL](/screenshots/tio/repl.png)
 
 ## 快速链接
 

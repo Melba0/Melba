@@ -185,3 +185,235 @@
     height: 130px;
   }
 }
+
+/* ============================================================
+   毛玻璃 / 极光特效增强
+   ============================================================ */
+
+/* 页面极光背景 */
+body {
+  background-image:
+    radial-gradient(48% 38% at 12% 0%, rgba(0, 122, 204, 0.14), transparent 62%),
+    radial-gradient(42% 34% at 92% 6%, rgba(78, 201, 176, 0.1), transparent 60%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.dark body {
+  background-image:
+    radial-gradient(50% 40% at 10% 0%, rgba(0, 122, 204, 0.26), transparent 62%),
+    radial-gradient(44% 36% at 92% 4%, rgba(78, 201, 176, 0.16), transparent 60%),
+    radial-gradient(60% 50% at 50% 110%, rgba(0, 90, 153, 0.2), transparent 68%);
+}
+
+/* 顶部导航：毛玻璃 */
+.VPNavBar {
+  background-color: rgba(20, 20, 22, 0.55) !important;
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.VPNavBar .divider,
+.VPNavBar.has-sidebar .divider {
+  background-color: transparent;
+}
+
+/* 侧边栏：毛玻璃 */
+.VPSidebar {
+  background-color: rgba(20, 20, 22, 0.42) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* 首页：漂浮光斑 */
+.VPHome {
+  position: relative;
+  overflow: hidden;
+}
+.VPHome::before,
+.VPHome::after {
+  content: '';
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.32;
+  pointer-events: none;
+  z-index: 0;
+}
+.VPHome::before {
+  background: #007acc;
+  top: -140px;
+  left: -120px;
+  animation: vp-float-a 18s ease-in-out infinite;
+}
+.VPHome::after {
+  background: #4ec9b0;
+  top: 60px;
+  right: -140px;
+  animation: vp-float-b 22s ease-in-out infinite;
+}
+.VPHome .VPHero,
+.VPHome .VPFeatures,
+.VPHome .vp-doc {
+  position: relative;
+  z-index: 1;
+}
+@keyframes vp-float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 40px) scale(1.12); }
+}
+@keyframes vp-float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-45px, 55px) scale(1.1); }
+}
+
+/* Hero 图像：玻璃光环 + 漂浮 */
+.VPHero .image-container {
+  filter: drop-shadow(0 24px 50px rgba(0, 122, 204, 0.35));
+  animation: vp-float-img 6s ease-in-out infinite;
+}
+.VPHero .image-bg {
+  opacity: 0.5;
+  filter: blur(60px);
+}
+@keyframes vp-float-img {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* 首页功能卡片：毛玻璃 */
+.VPFeature {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 16px;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.VPFeature:hover {
+  border-color: rgba(0, 122, 204, 0.6) !important;
+  box-shadow: 0 16px 46px rgba(0, 122, 204, 0.28);
+  transform: translateY(-5px);
+}
+.VPFeature .icon {
+  background: transparent !important;
+}
+
+/* Hero 按钮：渐变 + 光晕 */
+.VPButton.brand {
+  background: linear-gradient(120deg, #007acc, #1a8cff) !important;
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(0, 122, 204, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.VPButton.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 122, 204, 0.5);
+}
+.VPButton.alt {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+.VPButton.alt:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  transform: translateY(-2px);
+}
+
+/* 案例卡片：毛玻璃 */
+.case-card {
+  background: rgba(37, 37, 40, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.3);
+}
+.case-card:hover {
+  border-color: rgba(0, 122, 204, 0.6) !important;
+  box-shadow: 0 16px 46px rgba(0, 122, 204, 0.25);
+  transform: translateY(-4px);
+}
+.case-card .case-code {
+  backdrop-filter: blur(4px);
+}
+
+/* 下载按钮：渐变光晕 */
+.download-actions a {
+  background: linear-gradient(120deg, #007acc, #1a8cff) !important;
+  box-shadow: 0 8px 24px rgba(0, 122, 204, 0.32);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.download-actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(0, 122, 204, 0.5);
+}
+.download-actions a.alt {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+/* 文档截图：玻璃相框 */
+.vp-doc img {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.vp-doc img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 52px rgba(0, 122, 204, 0.28);
+}
+
+/* 代码块 / 表格：玻璃质感 */
+.vp-doc div[class*='language-'] {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.vp-doc table {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* 搜索弹层：毛玻璃 */
+.VPLocalSearchBox .shell,
+.VPLocalSearchBox .search-bar {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #3e3e42;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #007acc;
+  background-clip: content-box;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .VPHome::before,
+  .VPHome::after,
+  .VPHero .image-container {
+    animation: none !important;
+  }
+}

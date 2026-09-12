@@ -45,7 +45,7 @@ features:
 <div class="case-grid">
   <div class="case-card">
     <div class="case-images">
-      <img src="/tio-screenshot.svg" alt="Tio 界面" style="grid-column: 1 / -1;" />
+      <img src="/screenshots/tio/main-window.png" alt="Tio 界面" style="grid-column: 1 / -1;" />
     </div>
     <div class="case-body">
       <h3>🔍 Tio — 找到它</h3>
@@ -56,7 +56,7 @@ features:
   </div>
   <div class="case-card">
     <div class="case-images">
-      <img src="/openpaw-screenshot.svg" alt="OpenPaw 界面" style="grid-column: 1 / -1;" />
+      <img src="/screenshots/openpaw/overview.png" alt="OpenPaw 界面" style="grid-column: 1 / -1;" />
     </div>
     <div class="case-body">
       <h3>🎨 OpenPaw — 改好它</h3>

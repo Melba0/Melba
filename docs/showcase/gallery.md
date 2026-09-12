@@ -65,8 +65,12 @@ save(result, "after_stitch.jpg", format="jpg", quality=92)
 
 ### Tio — 图像检索
 
-![Tio 界面：左侧检索面板与标签筛选，右侧结果缩略图网格](/tio-screenshot.svg)
+![Tio 主界面](/screenshots/tio/main-window.png)
+
+![Tio 结果网格](/screenshots/tio/results-grid.png)
 
 ### OpenPaw — 图像处理
 
-![OpenPaw 界面：三栏布局、对比画布、调整面板与 DSL 编辑器、底部胶片条](/openpaw-screenshot.svg)
+![OpenPaw 总览](/screenshots/openpaw/overview.png)
+
+![OpenPaw 处理前后对比](/screenshots/openpaw/compare.png)
