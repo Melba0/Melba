@@ -5,6 +5,23 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# --- 下载镜像：本站 /releases/latest/<附件名> -> GitHub 对应仓库的最新 Release 附件 ---
+# 路径相对于本站域名，部署到任意 Netlify 域名（或自定义域名）都可用。
+# status = 200 为反向代理：保持本站地址、由 Netlify 转发并按源站响应缓存。
+# 若大文件反代不稳定，可把 status 改为 302（浏览器跳转到 GitHub 最新附件）。
+[[redirects]]
+  from = "/releases/latest/tio.zip"
+  to = "https://github.com/Melba0/TIO-Image-Manager/releases/latest/download/tio.zip"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/releases/latest/open.paw.zip"
+  to = "https://github.com/Melba0/Open-Paw/releases/latest/download/open.paw.zip"
+  status = 200
+  force = true
+
+# SPA 兜底（务必放在具体规则之后）
 [[redirects]]
   from = "/*"
   to = "/index.html"
