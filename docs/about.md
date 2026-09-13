@@ -11,7 +11,7 @@ description: 关于 Tio 与 OpenPaw：项目定位、开源许可（GPL-3.0）�
 |---|-----|---------|
 | 定位 | DSL 驱动的语义图像检索 | 自然语言驱动的图片编辑工作站 |
 | 输入 | 一句话 / DSL 查询 | 一句话 / OpenPaw DSL 脚本 |
-| 核心 | YOLOv8m 目标检测 + 增量缓存 | 分割 + 蒙版 + 合成 + 35+ 处理工具 |
+| 核心 | YOLOv8m 目标检测 + 增量缓存 | 分割 + 蒙版 + 合成 + 170+ 处理工具 |
 | GUI | Qt 6（结果网格、标签、详情） | Qt 6（画布、蒙版、DSL 编辑器、胶片条） |
 | 仓库 | <https://github.com/Melba0/tio> | <https://github.com/Melba0/Open-Paw> |
 

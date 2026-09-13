@@ -60,7 +60,7 @@ features:
     </div>
     <div class="case-body">
       <h3>🎨 OpenPaw — 改好它</h3>
-      <p class="case-desc">用自然语言驱动 35+ 处理工具（分割 / 蒙版 / 合成 / 调色 / 拼接），LLM 自动生成可编辑的 DSL 管道。</p>
+      <p class="case-desc">用自然语言驱动 170+ 处理工具（分割 / 蒙版 / 合成 / 调色 / 拼接），LLM 自动生成可编辑的 DSL 管道。</p>
       <pre class="case-code">src |&gt; skyseg() |&gt; apply_mask(...)</pre>
       <p><a href="/openpaw/">了解 OpenPaw →</a></p>
     </div>
@@ -92,6 +92,17 @@ features:
     <span class="chip">批量合成</span>
     <span class="chip">GPL-3.0</span>
   </div>
+</div>
+
+## 数字一览
+
+<div class="stats">
+  <div class="stat"><b>601</b><span>Open Images V7 目标类别</span></div>
+  <div class="stat"><b>365</b><span>Places365 场景</span></div>
+  <div class="stat"><b>170+</b><span>图像处理工具</span></div>
+  <div class="stat"><b>32</b><span>维色调直方图</span></div>
+  <div class="stat"><b>0</b><span>图片上传云端</span></div>
+  <div class="stat"><b>3</b><span>次 LLM 自动纠错</span></div>
 </div>
 
 ## 快速导航

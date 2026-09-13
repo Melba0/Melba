@@ -135,7 +135,7 @@ result = $ |> cartoon(0.7)
 
 尺寸不一致时按最大单元对齐并用 `bg_color` 填充空白；`gap` 控制间距。
 
-## 8. 保存语法 `save()`
+## 8. 保存语法 `save()` {#save-语义}
 
 ```dsl
 save(result, "output/dir/")                      # 目录：批量保存，文件名自动继承

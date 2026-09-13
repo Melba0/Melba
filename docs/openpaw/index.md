@@ -1,5 +1,5 @@
 ---
-description: OpenPaw 是自然语言驱动的图片编辑处理一体化工作站，LLM 将需求翻译成 OpenPaw DSL，调用分割、蒙版、合成等 35+ 工具批量处理图片。
+description: OpenPaw 是自然语言驱动的图片编辑处理一体化工作站，LLM 将需求翻译成 OpenPaw DSL，调用分割、蒙版、合成等 170+ 工具批量处理图片。
 ---
 
 # OpenPaw — 自然语言图片编辑工作站
@@ -36,7 +36,7 @@ LLM ──► src = $ : (any(class == "person"))
 - **图片库与工作区**：文件夹 / 多文件 / 拖拽 / 剪贴板导入；异步缩略图网格。
 - **原图 / 结果对比预览**，外加结果缩略图网格。
 - **处理模板**：一键保存当前 DSL，下次复用。
-- **35+ 图片处理工具**，覆盖几何、颜色、滤镜、合成、格式与 AI 增强。
+- **170+ 图片处理工具**，覆盖几何、颜色、滤镜、合成、格式与 AI 增强。
 - **中英双语**界面 / 文档。
 
 ## 修改前后对比
@@ -86,7 +86,7 @@ LLM ──► src = $ : (any(class == "person"))
 
 ### 工具面板
 
-按类别浏览 35+ 处理工具，一键插入 DSL：
+按类别浏览 170+ 处理工具，一键插入 DSL：
 
 ![工具面板](/screenshots/openpaw/tools-panel.png)
 
@@ -130,8 +130,12 @@ OpenPaw 复用了 [Tio](/tio/) 的选择语法与缓存体系：
 ## 快速链接
 
 - [快速开始](/openpaw/getting-started) — 编译、配置 LLM、第一个编辑任务
-- [DSL 语法参考](/openpaw/dsl-reference) — 管道、分割、蒙版、合成、保存
-- [工具清单](/openpaw/tools) — 35+ 工具的完整签名与示例
+- [桌面 GUI](/openpaw/gui) — 画布、面板、胶片条、蒙版编辑器
+- [DSL 语法参考](/openpaw/dsl-reference) — 管道、来源选择、参数与保存
+- [工具清单](/openpaw/tools) — 170+ 工具的完整签名与示例
+- [蒙版系统](/openpaw/masks) — 形状 / 渐变 / 羽化 / 布尔运算
 - [分割模型包](/openpaw/segmentation) — 包机制与自定义分割包
+- [LLM 与自动纠错](/openpaw/llm) — 配置、提示词、错误重试
+- [系统架构](/openpaw/architecture) · [CLI 参考](/openpaw/cli)
 - [常见问题](/openpaw/faq) — LLM 配置、重试、模型缺失排查
-- [下载 OpenPaw](/download) — 源码 ZIP 与 Release
+- [下载 OpenPaw](/download) — 最新 Release 附件

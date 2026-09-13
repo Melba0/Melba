@@ -146,6 +146,6 @@ openpaw> :quit
 ## 6. 下一步
 
 - [DSL 语法参考](/openpaw/dsl-reference) — 管道、分割、蒙版、合成
-- [工具清单](/openpaw/tools) — 全部 35+ 工具签名
+- [工具清单](/openpaw/tools) — 全部 170+ 工具签名
 - [分割模型包](/openpaw/segmentation) — 添加自定义分割包
 - [案例展示](/showcase/) — 真实效果与脚本

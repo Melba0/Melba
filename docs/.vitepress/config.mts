@@ -35,25 +35,56 @@ export default defineConfig({
     sidebar: {
       '/tio/': [
         {
-          text: 'Tio — 图像检索',
+          text: '入门',
           items: [
             { text: '项目介绍', link: '/tio/' },
             { text: '快速开始', link: '/tio/getting-started' },
-            { text: 'DSL 语法参考', link: '/tio/dsl-reference' },
-            { text: '功能列表', link: '/tio/features' },
+            { text: '功能列表', link: '/tio/features' }
+          ]
+        },
+        {
+          text: 'DSL 语言',
+          items: [
+            { text: '语法参考', link: '/tio/dsl-reference' },
+            { text: '内置宏参考', link: '/tio/macros' }
+          ]
+        },
+        {
+          text: '深入',
+          items: [
+            { text: '系统架构', link: '/tio/architecture' },
+            { text: '模型系统', link: '/tio/models' },
+            { text: '桌面 GUI', link: '/tio/gui' },
+            { text: 'CLI 与 REPL', link: '/tio/cli' },
+            { text: '模型导出', link: '/tio/model-export' },
             { text: '常见问题', link: '/tio/faq' }
           ]
         }
       ],
       '/openpaw/': [
         {
-          text: 'OpenPaw — 智能编辑',
+          text: '入门',
           items: [
             { text: '项目介绍', link: '/openpaw/' },
             { text: '快速开始', link: '/openpaw/getting-started' },
+            { text: '桌面 GUI', link: '/openpaw/gui' }
+          ]
+        },
+        {
+          text: 'DSL 与工具',
+          items: [
             { text: 'DSL 语法参考', link: '/openpaw/dsl-reference' },
             { text: '工具清单', link: '/openpaw/tools' },
-            { text: '分割模型包', link: '/openpaw/segmentation' },
+            { text: '蒙版系统', link: '/openpaw/masks' },
+            { text: '分割模型包', link: '/openpaw/segmentation' }
+          ]
+        },
+        {
+          text: '深入',
+          items: [
+            { text: 'LLM 与自动纠错', link: '/openpaw/llm' },
+            { text: '系统架构', link: '/openpaw/architecture' },
+            { text: 'CLI 参考', link: '/openpaw/cli' },
             { text: '常见问题', link: '/openpaw/faq' }
           ]
         }

@@ -343,3 +343,66 @@ del $ : (any(class == "cat"))
 - 字符串字面量 `"..."` 与裸标识符在类别名语境中等价。
 - 属性比较 `class == "cat"` 中的 `class` 是当前对象类别；量词内部迭代时自动绑定当前对象。
 - 在 Windows 上若 REPL 中文无法匹配，执行 `chcp 65001` 或使用程序自动设置的 UTF-8 控制台。
+
+## 11. 模糊求值语义
+
+Tio 的条件返回 **0~1 的相关度分数**，而非布尔：
+
+| 运算 | 语义 |
+|------|------|
+| `any(cond)` | 当前图片所有对象的 **max** |
+| `all(cond)` | **min**（空图为真） |
+| `&&` / `\|\|` | `min` / `max` |
+| `!` | `1 - score` |
+| ImageSet `&` / `\|` | 交集取 `min`、并集取 `max` |
+| `cnt(cls)` 与比较 | `>` 映射为 `sigmoid(cnt - (n + 0.5))`，连续而非硬边界 |
+
+`--hard` 会把阈值设为 `0.5`，退化为布尔过滤；否则结果按分数降序返回。
+
+> `any(cls)` 仅匹配 `class_name == cls` 或**直接** `super_class == cls`；
+> `cnt(cls)` 使用 `classes.json` 的**传递** is-a 链，能把 `apple` 计入 `fruit`。
+
+## 12. 场景与聚类
+
+```dsl
+$ : (img_scene("sunset") > 0.5)     # 指定场景概率
+$ : (img_scene_top() == "beach")    # 最高概率场景名
+$ : (img_is_indoor() > 0.7)         # 室内概率
+
+cluster_id(obj, "face_cluster")              # 对象聚类 id（未分配为空串）
+cluster_sim(a, b, "face_cluster")            # 同聚类为 1
+```
+
+## 13. 扩展操作符 `>>` 详解
+
+`ObjectSet >> ext_name` 的运行时流程：
+
+1. 过滤 `class_name` 或 `super_class == parent_class` 的对象；
+2. 按 `crop_padding` 扩大包围盒并裁剪，缩放到 `input_size`；
+3. 运行扩展模型（分类器 / 检测器）；
+4. 子对象映射回原图坐标，带 `parent_id`、`super_class`、新 `obj_id`，`score = 父分 × 0.9`。
+
+- 未激活 / 未注册 → `Extension "xxx" is not active in registry.`
+- 父类不在基座 `classes.json` → 报错；
+- 聚类 / 嵌入包在 `>>` 下退化为恒等变换。
+
+```dsl
+parts = (% $ : (any(class == "person"))) >> face_recognition_v1
+out = ^ parts
+```
+
+## 14. 相簿 `collection(...)`
+
+`collection("名称")` 返回 `cache_index.json` 的 `collections` 字段中的相簿图片集，
+不受标签预筛选影响；不存在时返回空集。
+
+```dsl
+travel = collection("旅行")
+warm_travel = travel & $ : (img_warmth() > 0.7)
+```
+
+## 延伸阅读
+
+- [内置宏参考](/tio/macros) — 全部内置宏
+- [功能列表](/tio/features) · [模型系统](/tio/models)
+- [CLI 与 REPL](/tio/cli) · [桌面 GUI](/tio/gui)

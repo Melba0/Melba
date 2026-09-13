@@ -21,11 +21,11 @@
   status = 200
   force = true
 
-# SPA 兜底（务必放在具体规则之后）
+# 404 兜底（放在具体规则之后；未匹配的路径返回自定义 404 页面）
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
 
 [[headers]]
   for = "/*"
