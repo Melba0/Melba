@@ -417,3 +417,241 @@ html {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   进阶特效：滚动显现 / 卡片聚光 / 渐变文字 / 进度条
+   ============================================================ */
+
+/* 滚动进度条 */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  z-index: 9999;
+  background: linear-gradient(90deg, #007acc, #4ec9b0);
+  box-shadow: 0 0 12px rgba(0, 122, 204, 0.85);
+  pointer-events: none;
+}
+
+/* 滚动显现（CSS 滚动驱动动画，无需 JS、无闪烁；不支持的浏览器直接正常显示） */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .vp-doc h2,
+    .vp-doc h3,
+    .vp-doc table,
+    .vp-doc img,
+    .vp-doc div[class*='language-'],
+    .VPFeature,
+    .case-card,
+    .download-actions,
+    .tech-ticker {
+      animation: vp-reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 30%;
+    }
+  }
+}
+@keyframes vp-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* 卡片聚光（跟随鼠标） */
+.VPFeature,
+.case-card {
+  position: relative;
+  overflow: hidden;
+}
+.VPFeature::after,
+.case-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    240px circle at var(--card-x, 50%) var(--card-y, 0%),
+    rgba(0, 122, 204, 0.22),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
+}
+.VPFeature:hover::after,
+.case-card:hover::after {
+  opacity: 1;
+}
+.VPFeature > *,
+.case-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 功能区图标微动 */
+.VPFeature .icon {
+  transition: transform 0.3s ease;
+}
+.VPFeature:hover .icon {
+  transform: translateY(-3px) scale(1.14);
+}
+
+/* Hero 标题：流动渐变 */
+.VPHero .name {
+  background-image: linear-gradient(120deg, #007acc, #4ec9b0, #1a8cff, #007acc);
+  background-size: 240% 240%;
+  animation: vp-gradient-pan 9s ease infinite;
+}
+@keyframes vp-gradient-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero 网格底纹 */
+.VPHero {
+  position: relative;
+}
+.VPHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 15%, transparent 78%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 15%, transparent 78%);
+  pointer-events: none;
+  z-index: 0;
+}
+.VPHero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* 顶部导航：悬停下划线 */
+.VPNavBarMenuLink {
+  position: relative;
+}
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #007acc, #4ec9b0);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.VPNavBarMenuLink:hover::after,
+.VPNavBarMenuLink.active::after {
+  transform: scaleX(1);
+}
+
+/* 按钮：高光扫过 */
+.download-actions a,
+.VPButton.brand {
+  position: relative;
+  overflow: hidden;
+}
+.download-actions a::after,
+.VPButton.brand::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -140%;
+  width: 60%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
+}
+.download-actions a:hover::after,
+.VPButton.brand:hover::after {
+  left: 140%;
+}
+
+/* 代码块：顶部渐变描边 */
+.vp-doc div[class*='language-'] {
+  position: relative;
+  overflow: hidden;
+}
+.vp-doc div[class*='language-']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #007acc, #4ec9b0, transparent);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+/* 表格行悬停 */
+.vp-doc tbody tr {
+  transition: background-color 0.2s ease;
+}
+.vp-doc tbody tr:hover {
+  background-color: rgba(0, 122, 204, 0.08);
+}
+
+/* 选中文字 */
+::selection {
+  background: rgba(0, 122, 204, 0.35);
+  color: #fff;
+}
+
+/* 技术徽标跑马灯 */
+.tech-ticker {
+  overflow: hidden;
+  margin: 28px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.tech-ticker .track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: vp-marquee 28s linear infinite;
+}
+.tech-ticker:hover .track {
+  animation-play-state: paused;
+}
+.tech-ticker .chip {
+  flex: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  white-space: nowrap;
+}
+@keyframes vp-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-ticker .track {
+    animation: none !important;
+  }
+}

@@ -67,6 +67,33 @@ features:
   </div>
 </div>
 
+<div class="tech-ticker">
+  <div class="track">
+    <span class="chip">C++17</span>
+    <span class="chip">Qt 6</span>
+    <span class="chip">ONNX Runtime</span>
+    <span class="chip">YOLOv8m 检测</span>
+    <span class="chip">Places365 场景识别</span>
+    <span class="chip">U²-NetP 天空分割</span>
+    <span class="chip">OpenAI 兼容 LLM</span>
+    <span class="chip">增量缓存</span>
+    <span class="chip">浮点蒙版</span>
+    <span class="chip">批量合成</span>
+    <span class="chip">GPL-3.0</span>
+    <span class="chip">C++17</span>
+    <span class="chip">Qt 6</span>
+    <span class="chip">ONNX Runtime</span>
+    <span class="chip">YOLOv8m 检测</span>
+    <span class="chip">Places365 场景识别</span>
+    <span class="chip">U²-NetP 天空分割</span>
+    <span class="chip">OpenAI 兼容 LLM</span>
+    <span class="chip">增量缓存</span>
+    <span class="chip">浮点蒙版</span>
+    <span class="chip">批量合成</span>
+    <span class="chip">GPL-3.0</span>
+  </div>
+</div>
+
 ## 快速导航
 
 | 我想… | 去哪里 |
